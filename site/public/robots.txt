@@ -1,0 +1,14 @@
+# robots.txt — Earn and Claim Coins Free
+# https://earnandclaimcoinsfree.com/
+
+User-agent: *
+Allow: /
+
+# Block redirect pages (no SEO value — these are outbound traffic gates)
+Disallow: /redirect/
+
+# Block 404 page
+Disallow: /404
+
+# Sitemap location
+Sitemap: https://earnandclaimcoinsfree.com/sitemap.xml
