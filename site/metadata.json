@@ -1,0 +1,6 @@
+{
+  "name": "Crypto Faucet Hub",
+  "description": "Earn Free Crypto Every Hour — Trusted Faucets, PTC & Mining Sites",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
