@@ -28,6 +28,7 @@ export const sites: SiteData[] = [
   { id: 'f4', name: 'DOGE Kong', url: 'https://dogekong.live/?ref=earnandclaimcoins', type: 'FAUCET', reward: '15 DOGE', frequency: 'Every 60 minutes', rating: 4.6, bonusInfo: '2% Bonus Commission' },
   { id: 'f9', name: 'SOL Kong', url: 'https://solkong.live', type: 'FAUCET', reward: '0.01 SOL', frequency: 'Every 60 minutes', rating: 4.6, bonusInfo: '2% Bonus Commission' },
   { id: 'f13', name: 'SUI Kong', url: 'https://suikong.live', type: 'FAUCET', reward: '2 SUI', frequency: 'Every 60 minutes', rating: 4.5, bonusInfo: '2% Bonus Commission' },
+  { id: 'f14', name: 'EasyTon', url: 'https://easyton.io/?ref=cryyypt', type: 'FAUCET', reward: '1 TON', frequency: 'Every 60 minutes', rating: 4.4, bonusInfo: 'Bonus Commission' },
 
   // FAUCETS
   { id: 'f1', name: 'Tronlux', url: 'https://tronlux.io/?ref=cryyycryp', type: 'FAUCET', reward: '80 TRX', frequency: 'Every 60 minutes', rating: 4.8, featured: true },
@@ -40,7 +41,6 @@ export const sites: SiteData[] = [
   { id: 'f10', name: 'Free TON', url: 'https://freetoncoin.in?ref=hfixyHWT9q', type: 'FAUCET', reward: '1.20 TON', frequency: 'Every 60 minutes', rating: 4.4 },
   { id: 'f11', name: 'Free SHIB', url: 'https://freeshib.in?ref=3kABbGovQu', type: 'FAUCET', reward: '500k SHIB', frequency: 'Every 60 minutes', rating: 4.2 },
   { id: 'f12', name: 'Free ARB', url: 'https://freearb.in?ref=x4GGgQnguV', type: 'FAUCET', reward: '20 ARB', frequency: 'Every 60 minutes', rating: 4.3 },
-  { id: 'f14', name: 'EasyTon', url: 'https://easyton.io/?ref=cryyypt', type: 'FAUCET', reward: '1 TON', frequency: 'Every 60 minutes', rating: 4.4 },
   { id: 'f15', name: 'Free BCH', url: 'https://freebch.in', type: 'FAUCET', reward: '0.025 BCH', frequency: 'Every 60 minutes', rating: 4.3 },
 
   // PTC
