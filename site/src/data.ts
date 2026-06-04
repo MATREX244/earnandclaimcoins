@@ -24,7 +24,7 @@ export interface SiteData {
 export const sites: SiteData[] = [
   // SITES WITH BONUS (TOP)
   { id: 'f18', name: 'LitePick', url: 'https://litepick.io/?ref=earnandclaimcoin', type: 'FAUCET', reward: 'LTC', frequency: 'Every 60 minutes', rating: 4.6, bonusInfo: '5% Bonus Commission' },
-  { id: 'f19', name: 'BitPick', url: 'https://bitpick.co/?ref=earnandclaimcoin', type: 'FAUCET', reward: 'BTC', frequency: 'Every 60 minutes', rating: 4.7, bonusInfo: '5% Bonus Commission' },
+  { id: 'f17', name: 'SolPick', url: 'https://solpick.io/?ref=earnandclaimcoin', type: 'FAUCET', reward: '0.04 SOL', frequency: 'Every 60 minutes', rating: 4.5, bonusInfo: '5% Bonus Commission' },
   { id: 'f4', name: 'DOGE Kong', url: 'https://dogekong.live/?ref=earnandclaimcoins', type: 'FAUCET', reward: '15 DOGE', frequency: 'Every 60 minutes', rating: 4.6, bonusInfo: '2% Bonus Commission' },
   { id: 'f9', name: 'SOL Kong', url: 'https://solkong.live', type: 'FAUCET', reward: '0.01 SOL', frequency: 'Every 60 minutes', rating: 4.6, bonusInfo: '2% Bonus Commission' },
   { id: 'f13', name: 'SUI Kong', url: 'https://suikong.live', type: 'FAUCET', reward: '2 SUI', frequency: 'Every 60 minutes', rating: 4.5, bonusInfo: '2% Bonus Commission' },
@@ -42,7 +42,6 @@ export const sites: SiteData[] = [
   { id: 'f12', name: 'Free ARB', url: 'https://freearb.in?ref=x4GGgQnguV', type: 'FAUCET', reward: '20 ARB', frequency: 'Every 60 minutes', rating: 4.3 },
   { id: 'f14', name: 'EasyTon', url: 'https://easyton.io/?ref=cryyypt', type: 'FAUCET', reward: '1 TON', frequency: 'Every 60 minutes', rating: 4.4 },
   { id: 'f15', name: 'Free BCH', url: 'https://freebch.in', type: 'FAUCET', reward: '0.025 BCH', frequency: 'Every 60 minutes', rating: 4.3 },
-  { id: 'f17', name: 'SolPick', url: 'https://solpick.io', type: 'FAUCET', reward: '0.04 SOL', frequency: 'Every 60 minutes', rating: 4.5 },
 
   // PTC
   { id: 'p1', name: 'Satsman', url: 'https://satsman.com', type: 'PTC', reward: '200 satoshi', frequency: 'Daily Limit', rating: 4.7 },
