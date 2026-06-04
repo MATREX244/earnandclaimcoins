@@ -62,9 +62,9 @@ export const sites: SiteData[] = [
   { id: 'p16', name: 'BtcAdSpace', url: 'https://btcadspace.com', type: 'PTC', reward: '50 satoshi', frequency: 'Daily Limit', rating: 4.5 },
 
   // MINING
-  { id: 'm1', name: 'RollerCoin', url: 'https://rollercoin.com', type: 'MINING', reward: '1000 sat bonus', frequency: 'Continuous', rating: 4.8, featured: true },
-  { id: 'm2', name: 'ZenMine', url: 'https://zenmine.io', type: 'MINING', reward: '1000 H/s free', frequency: 'Continuous', rating: 4.5 },
-  { id: 'm3', name: 'Nuggmi', url: 'https://nuggmi.com', type: 'MINING', reward: 'Faucet+PTC+Mine', frequency: 'Continuous', rating: 4.6 },
+  { id: 'm1', name: 'RollerCoin', url: 'https://rollercoin.com/?r=mpz16sc7', type: 'MINING', reward: '1000 sat bonus', frequency: 'Continuous', rating: 4.8, featured: true },
+  { id: 'm2', name: 'ZenMine', url: 'https://zenmine.io/?ref=VMEbBPeG', type: 'MINING', reward: '1000 H/s free', frequency: 'Continuous', rating: 4.5 },
+  { id: 'm3', name: 'Nuggmi', url: 'https://nuggmi.com/ref/earnandclaimcoins', type: 'MINING', reward: 'Faucet+PTC+Mine', frequency: 'Continuous', rating: 4.6 },
   { id: 'm4', name: 'LimerCoin', url: 'https://limercoin.com', type: 'MINING', reward: 'Free Miner', frequency: 'Continuous', rating: 4.4 },
   { id: 'm5', name: 'SimpleBits', url: 'https://simplebits.io', type: 'MINING', reward: 'Deploy Miners', frequency: 'Continuous', rating: 4.7 },
   { id: 'm6', name: 'GROSATS', url: 'https://grosats.com', type: 'MINING', reward: 'Deploy Miners', frequency: 'Continuous', rating: 4.2 },
