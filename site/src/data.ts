@@ -72,8 +72,8 @@ export const sites: SiteData[] = [
 
   // PASSIVE INCOME
   { id: 'pa1', name: 'HoneyGain', url: 'https://honeygain.com', type: 'PASSIVE', reward: '$3 bonus + $0.30/GB', frequency: 'Passive', rating: 4.9, featured: true },
-  { id: 'pa2', name: 'Pawns.app', url: 'https://pawns.app', type: 'PASSIVE', reward: '$1 bonus + $0.20/GB', frequency: 'Passive', rating: 4.8 },
+  { id: 'pa2', name: 'Pawns.app', url: 'https://pawns.app/?r=19830013', type: 'PASSIVE', reward: '$1 bonus + $0.20/GB', frequency: 'Passive', rating: 4.8 },
   { id: 'pa3', name: 'EarnFM', url: 'https://earn.fm', type: 'PASSIVE', reward: '$5 bonus + $0.20/GB', frequency: 'Passive', rating: 4.5 },
-  { id: 'pa4', name: 'ByteLixir', url: 'https://bytelixir.com', type: 'PASSIVE', reward: '$1 bonus + $0.20/GB', frequency: 'Passive', rating: 4.4 },
-  { id: 'pa5', name: 'Grass', url: 'https://getgrass.io', type: 'PASSIVE', reward: '5000 points free', frequency: 'Passive', rating: 4.7 }
+  { id: 'pa4', name: 'ByteLixir', url: 'https://bytelixir.com/r/NUJWDWGVHMBE', type: 'PASSIVE', reward: '$1 bonus + $0.20/GB', frequency: 'Passive', rating: 4.4 },
+  { id: 'pa5', name: 'Grass', url: 'https://app.grass.io/register?referralCode=PP0N-orC1w48aD6', type: 'PASSIVE', reward: '5000 points free', frequency: 'Passive', rating: 4.7 }
 ];
