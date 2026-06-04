@@ -44,7 +44,7 @@ export const sites: SiteData[] = [
   { id: 'f15', name: 'Free BCH', url: 'https://freebch.in', type: 'FAUCET', reward: '0.025 BCH', frequency: 'Every 60 minutes', rating: 4.3 },
 
   // PTC
-  { id: 'p1', name: 'Satsman', url: 'https://satsman.com', type: 'PTC', reward: '200 satoshi', frequency: 'Daily Limit', rating: 4.7 },
+  { id: 'p1', name: 'Satsman', url: 'https://satsman.com?ref=earnandclaimcoins', type: 'PTC', reward: '200 satoshi', frequency: 'Daily Limit', rating: 4.7 },
   { id: 'p2', name: 'Ad Doge', url: 'https://addoge.com', type: 'PTC', reward: '1 DOGE', frequency: 'Daily Limit', rating: 4.3 },
   { id: 'p3', name: 'CoinPayU', url: 'https://coinpayu.com', type: 'PTC', reward: '500 satoshi', frequency: 'Daily Limit', rating: 4.9, featured: true },
   { id: 'p4', name: 'Ad BTC', url: 'https://adbtc.top', type: 'PTC', reward: '250 satoshi', frequency: 'Daily Limit', rating: 4.8 },
