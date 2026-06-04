@@ -141,7 +141,7 @@ export function SiteCard({ site, isFavorite = false, onToggleFavorite }: SiteCar
           </span>
         </div>
         {site.bonusInfo && (
-          <div className="flex items-center gap-1.5 bg-emerald-50 text-emerald-700 px-2.5 py-1 rounded-full border border-emerald-100">
+          <div className="flex items-center gap-1.5 text-emerald-600">
             <Gift className="w-3.5 h-3.5" />
             <span className="text-[11px] font-bold">{site.bonusInfo}</span>
           </div>
