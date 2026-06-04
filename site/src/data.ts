@@ -18,24 +18,25 @@ export interface SiteData {
   frequency: string;
   rating: number;
   featured?: boolean;
+  bonusInfo?: string;
 }
 
 export const sites: SiteData[] = [
   // FAUCETS
-  { id: 'f1', name: 'Tronlux', url: 'https://tronlux.io', type: 'FAUCET', reward: '80 TRX', frequency: 'Every 60 minutes', rating: 4.8, featured: true },
+  { id: 'f1', name: 'Tronlux', url: 'https://tronlux.io/?ref=cryyycryp', type: 'FAUCET', reward: '80 TRX', frequency: 'Every 60 minutes', rating: 4.8, featured: true },
   { id: 'f2', name: 'Free ETH', url: 'https://freeeth.io', type: 'FAUCET', reward: '0.005 ETH', frequency: 'Every 60 minutes', rating: 4.5 },
-  { id: 'f3', name: 'Cointiply', url: 'https://cointiply.com', type: 'FAUCET', reward: '200+ satoshi', frequency: 'Every 60 minutes', rating: 4.9, featured: true },
-  { id: 'f4', name: 'DOGE Kong', url: 'https://dogekong.live', type: 'FAUCET', reward: '15 DOGE', frequency: 'Every 60 minutes', rating: 4.6 },
-  { id: 'f5', name: 'USDT Pick', url: 'https://usdpick.io', type: 'FAUCET', reward: '5 USDT', frequency: 'Every 60 minutes', rating: 4.4 },
-  { id: 'f6', name: 'Free BNB', url: 'https://freebnb.in', type: 'FAUCET', reward: '0.007 BNB', frequency: 'Every 60 minutes', rating: 4.5 },
-  { id: 'f7', name: 'Free XRP', url: 'https://freexrp.in', type: 'FAUCET', reward: '5 XRP', frequency: 'Every 60 minutes', rating: 4.3 },
-  { id: 'f8', name: 'Free TRON', url: 'https://freetron.in', type: 'FAUCET', reward: '50 TRX', frequency: 'Every 60 minutes', rating: 4.7 },
-  { id: 'f9', name: 'SOL Kong', url: 'https://solkong.live', type: 'FAUCET', reward: '0.01 SOL', frequency: 'Every 60 minutes', rating: 4.6 },
-  { id: 'f10', name: 'Free TON', url: 'https://freetoncoin.in', type: 'FAUCET', reward: '1.20 TON', frequency: 'Every 60 minutes', rating: 4.4 },
-  { id: 'f11', name: 'Free SHIB', url: 'https://freeshib.in', type: 'FAUCET', reward: '500k SHIB', frequency: 'Every 60 minutes', rating: 4.2 },
-  { id: 'f12', name: 'Free ARB', url: 'https://freearb.in', type: 'FAUCET', reward: '20 ARB', frequency: 'Every 60 minutes', rating: 4.3 },
-  { id: 'f13', name: 'SUI Kong', url: 'https://suikong.live', type: 'FAUCET', reward: '2 SUI', frequency: 'Every 60 minutes', rating: 4.5 },
-  { id: 'f14', name: 'EasyTon', url: 'https://easyton.io', type: 'FAUCET', reward: '1 TON', frequency: 'Every 60 minutes', rating: 4.4 },
+  { id: 'f3', name: 'Cointiply', url: 'https://cointiply.mobi/rkO85E', type: 'FAUCET', reward: '200+ satoshi', frequency: 'Every 60 minutes', rating: 4.9, featured: true },
+  { id: 'f4', name: 'DOGE Kong', url: 'https://dogekong.live/?ref=earnandclaimcoins', type: 'FAUCET', reward: '15 DOGE', frequency: 'Every 60 minutes', rating: 4.6, bonusInfo: '2% Bonus Commission' },
+  { id: 'f5', name: 'USDT Pick', url: 'https://usdpick.io?ref=UNQLubRKzs', type: 'FAUCET', reward: '5 USDT', frequency: 'Every 60 minutes', rating: 4.4 },
+  { id: 'f6', name: 'Free BNB', url: 'https://freebnb.in?ref=eTKpyBTNTs', type: 'FAUCET', reward: '0.007 BNB', frequency: 'Every 60 minutes', rating: 4.5 },
+  { id: 'f7', name: 'Free XRP', url: 'https://freexrp.in?ref=VUFftXFUf3', type: 'FAUCET', reward: '5 XRP', frequency: 'Every 60 minutes', rating: 4.3 },
+  { id: 'f8', name: 'Free TRON', url: 'https://freetron.in?ref=5lyXlHEjQC', type: 'FAUCET', reward: '50 TRX', frequency: 'Every 60 minutes', rating: 4.7 },
+  { id: 'f9', name: 'SOL Kong', url: 'https://solkong.live', type: 'FAUCET', reward: '0.01 SOL', frequency: 'Every 60 minutes', rating: 4.6, bonusInfo: '2% Bonus Commission' },
+  { id: 'f10', name: 'Free TON', url: 'https://freetoncoin.in?ref=hfixyHWT9q', type: 'FAUCET', reward: '1.20 TON', frequency: 'Every 60 minutes', rating: 4.4 },
+  { id: 'f11', name: 'Free SHIB', url: 'https://freeshib.in?ref=3kABbGovQu', type: 'FAUCET', reward: '500k SHIB', frequency: 'Every 60 minutes', rating: 4.2 },
+  { id: 'f12', name: 'Free ARB', url: 'https://freearb.in?ref=x4GGgQnguV', type: 'FAUCET', reward: '20 ARB', frequency: 'Every 60 minutes', rating: 4.3 },
+  { id: 'f13', name: 'SUI Kong', url: 'https://suikong.live', type: 'FAUCET', reward: '2 SUI', frequency: 'Every 60 minutes', rating: 4.5, bonusInfo: '2% Bonus Commission' },
+  { id: 'f14', name: 'EasyTon', url: 'https://easyton.io/?ref=cryyypt', type: 'FAUCET', reward: '1 TON', frequency: 'Every 60 minutes', rating: 4.4 },
   { id: 'f15', name: 'Free BCH', url: 'https://freebch.in', type: 'FAUCET', reward: '0.025 BCH', frequency: 'Every 60 minutes', rating: 4.3 },
   { id: 'f17', name: 'SolPick', url: 'https://solpick.io', type: 'FAUCET', reward: '0.04 SOL', frequency: 'Every 60 minutes', rating: 4.5 },
   { id: 'f18', name: 'LitePick', url: 'https://litepick.io', type: 'FAUCET', reward: 'LTC', frequency: 'Every 60 minutes', rating: 4.6 },

@@ -133,11 +133,19 @@ export function SiteCard({ site, isFavorite = false, onToggleFavorite }: SiteCar
         </div>
       </div>
 
-      <div className="flex items-center gap-1 mb-5 border-b border-gray-50 pb-4">
-        <Star className="w-4 h-4 fill-amber-400 text-amber-400" aria-hidden="true" />
-        <span className="text-[14px] font-bold text-gray-800 ml-1">
-          {site.rating}<span className="text-gray-400 font-medium">/5</span>
-        </span>
+      <div className="flex items-center justify-between mb-5 border-b border-gray-50 pb-4">
+        <div className="flex items-center gap-1">
+          <Star className="w-4 h-4 fill-amber-400 text-amber-400" aria-hidden="true" />
+          <span className="text-[14px] font-bold text-gray-800 ml-1">
+            {site.rating}<span className="text-gray-400 font-medium">/5</span>
+          </span>
+        </div>
+        {site.bonusInfo && (
+          <div className="flex items-center gap-1.5 bg-emerald-50 text-emerald-700 px-2.5 py-1 rounded-full border border-emerald-100">
+            <Gift className="w-3.5 h-3.5" />
+            <span className="text-[11px] font-bold">{site.bonusInfo}</span>
+          </div>
+        )}
       </div>
 
       <div className="flex flex-col gap-2.5 mb-6 text-gray-600 mt-auto">

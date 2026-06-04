@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ShieldCheck, ExternalLink, ArrowLeft } from 'lucide-react';
+import { ExternalLink, ArrowLeft } from 'lucide-react';
 import { sites, slugify } from '../data';
 import { isSafeRedirectUrl } from '../components/RedirectModal';
 import AdBannerSticky from '../components/AdBannerSticky';
@@ -73,16 +73,10 @@ export default function RedirectPage() {
           {/* FIX: corrected label text */}
           <p className="text-gray-500 text-xs font-bold uppercase tracking-[0.2em] mb-3">You are being redirected to:</p>
           <h1 className="text-3xl font-black text-gray-900 mb-2">{site.name}</h1>
-          <div className="inline-block px-4 py-1.5 bg-purple-50 rounded-full">
-            <p className="text-purple-600 text-sm font-semibold truncate max-w-[280px]">{site.url}</p>
-          </div>
+          {/* URL display removed as requested */}
         </div>
 
-        {/* Verified badge */}
-        <div className="flex items-center gap-2 bg-emerald-50 text-emerald-700 text-[13px] font-bold px-5 py-3 rounded-[16px] mb-8 border border-emerald-100/50 w-full justify-center">
-          <ShieldCheck className="w-4 h-4 shrink-0" />
-          Verified Secure Destination
-        </div>
+        {/* Verified badge removed as requested */}
 
         {/* Countdown ring */}
         {!unlocked && (
