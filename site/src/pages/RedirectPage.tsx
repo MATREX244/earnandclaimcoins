@@ -102,8 +102,8 @@ export default function RedirectPage() {
           </div>
         )}
 
-        {/* Turnstile Verification */}
-        <div className="mb-8">
+        {/* Turnstile Verification - Added min-height and centering */}
+        <div className="mb-8 min-h-[65px] flex items-center justify-center w-full overflow-hidden">
           <Turnstile
             sitekey={TURNSTILE_SITE_KEY}
             onVerify={(token) => setTurnstileToken(token)}
