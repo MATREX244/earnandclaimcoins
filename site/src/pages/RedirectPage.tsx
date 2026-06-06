@@ -1,12 +1,14 @@
 import { useEffect, useState, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ExternalLink, ArrowLeft } from 'lucide-react';
+import Turnstile from 'react-turnstile';
 import { sites, slugify } from '../data';
 import { isSafeRedirectUrl } from '../components/RedirectModal';
 import AdBannerSticky from '../components/AdBannerSticky';
 
 // FIX: countdown set to 10 seconds as requested
 const COUNTDOWN = 10;
+const TURNSTILE_SITE_KEY = '0x4AAAAAADft3KMI8i7zgg1J';
 
 export default function RedirectPage() {
   const { siteId } = useParams<{ siteId: string }>();
@@ -17,15 +19,16 @@ export default function RedirectPage() {
 
   const [seconds, setSeconds] = useState(COUNTDOWN);
   const [unlocked, setUnlocked] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const [gone, setGone] = useState(false);
 
   const goNow = useCallback(() => {
-    if (gone || !site) return;
+    if (gone || !site || !turnstileToken) return;
     if (!isSafeRedirectUrl(site.url)) return;
     setGone(true);
     window.open(site.url, '_blank', 'noopener,noreferrer');
     navigate(-1);
-  }, [gone, site, navigate]);
+  }, [gone, site, turnstileToken, navigate]);
 
   // FIX: redirect to 404 (not home) when site not found, so the URL is meaningful
   useEffect(() => {
@@ -50,6 +53,8 @@ export default function RedirectPage() {
   const circ = 2 * Math.PI * 26;
   const dash = circ - (progress / 100) * circ;
 
+  const isReady = unlocked && turnstileToken;
+
   return (
     <div className="min-h-screen bg-[#f8fafc] flex flex-col items-center justify-center p-6">
       <AdBannerSticky />
@@ -70,13 +75,9 @@ export default function RedirectPage() {
 
         {/* Target Site Info */}
         <div className="mb-8">
-          {/* FIX: corrected label text */}
           <p className="text-gray-500 text-xs font-bold uppercase tracking-[0.2em] mb-3">You are being redirected to:</p>
           <h1 className="text-3xl font-black text-gray-900 mb-2">{site.name}</h1>
-          {/* URL display removed as requested */}
         </div>
-
-        {/* Verified badge removed as requested */}
 
         {/* Countdown ring */}
         {!unlocked && (
@@ -101,22 +102,33 @@ export default function RedirectPage() {
           </div>
         )}
 
+        {/* Turnstile Verification */}
+        <div className="mb-8">
+          <Turnstile
+            sitekey={TURNSTILE_SITE_KEY}
+            onVerify={(token) => setTurnstileToken(token)}
+            onExpire={() => setTurnstileToken(null)}
+            onError={() => setTurnstileToken(null)}
+          />
+        </div>
+
         {/* Buttons */}
         <div className="flex flex-col gap-3 w-full">
           <button
             onClick={goNow}
-            disabled={!unlocked}
+            disabled={!isReady}
             className={`w-full py-4 rounded-[18px] font-bold flex items-center justify-center gap-2 transition-all focus:outline-none text-base ${
-              unlocked
+              isReady
                 ? 'bg-[#2e1065] text-white hover:bg-[#1f0b45] shadow-lg shadow-purple-900/20 focus:ring-2 focus:ring-purple-400 cursor-pointer'
                 : 'bg-gray-100 text-gray-400 cursor-not-allowed'
             }`}
           >
-            {unlocked ? (
-              <> Access {site.name} <ExternalLink className="w-4 h-4" /> </>
-            ) : (
-              // FIX: show "Wait Xs" only while seconds > 0; once unlocked the button text updates correctly
+            {!unlocked ? (
               `Wait ${seconds}s to continue`
+            ) : !turnstileToken ? (
+              'Verify to continue'
+            ) : (
+              <> Access {site.name} <ExternalLink className="w-4 h-4" /> </>
             )}
           </button>
           <button

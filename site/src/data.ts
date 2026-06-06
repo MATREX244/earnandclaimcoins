@@ -47,7 +47,7 @@ export const sites: SiteData[] = [
   { id: 'p1', name: 'Satsman', url: 'https://satsman.com?ref=earnandclaimcoins', type: 'PTC', reward: '200 satoshi', frequency: 'Daily Limit', rating: 4.7 },
   { id: 'p2', name: 'Ad Doge', url: 'https://addoge.com', type: 'PTC', reward: '1 DOGE', frequency: 'Daily Limit', rating: 4.3 },
   { id: 'p3', name: 'CoinPayU', url: 'https://www.coinpayu.com/?r=2Kg24bYy2X48', type: 'PTC', reward: '500 satoshi', frequency: 'Daily Limit', rating: 4.9, featured: true },
-  { id: 'p4', name: 'Ad BTC', url: 'https://adbtc.top', type: 'PTC', reward: '250 satoshi', frequency: 'Daily Limit', rating: 4.8 },
+  { id: 'p4', name: 'Ad BTC', url: 'https://r.adbtc.top/4171888', type: 'PTC', reward: '250 satoshi', frequency: 'Daily Limit', rating: 4.8 },
   { id: 'p5', name: 'LuckyWatch', url: 'https://luckywatch.com', type: 'PTC', reward: '$0.20', frequency: 'Daily Limit', rating: 4.5 },
   { id: 'p6', name: 'AdCore', url: 'https://adcore.io', type: 'PTC', reward: '100 satoshi', frequency: 'Daily Limit', rating: 4.4 },
   { id: 'p7', name: 'AdSlice', url: 'https://adslice.com', type: 'PTC', reward: '100 satoshi', frequency: 'Daily Limit', rating: 4.6 },
