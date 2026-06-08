@@ -141,20 +141,14 @@ export default function App() {
           </a>
 
           <nav className="hidden lg:flex items-center gap-8 text-[15px] text-gray-300 font-semibold tracking-wide" aria-label="Category navigation">
-            {categories.map((cat) => (
-              <a
-                key={cat.id}
-                href="#"
-                onClick={(e) => { e.preventDefault(); navigate(categoryRoutes[cat.id] ?? '/'); window.scrollTo({ top: 0 }); }}
-                className={`transition-colors ${activeCategory === cat.id ? 'text-white' : 'hover:text-white'}`}
-                aria-current={activeCategory === cat.id ? 'page' : undefined}
-              >
-                {cat.label}
-              </a>
-            ))}
+            <button onClick={() => { navigate('/'); window.scrollTo({ top: 0 }); }} className={`transition-colors ${activeCategory === 'ALL' ? 'text-white' : 'hover:text-white'}`}>All Sites</button>
+            <button onClick={() => { navigate('/faucet'); window.scrollTo({ top: 0 }); }} className={`transition-colors ${activeCategory === 'FAUCET' ? 'text-white' : 'hover:text-white'}`}>Faucets</button>
+            <button onClick={() => { navigate('/ptc'); window.scrollTo({ top: 0 }); }} className={`transition-colors ${activeCategory === 'PTC' ? 'text-white' : 'hover:text-white'}`}>PTC Sites</button>
+            <button onClick={() => { navigate('/freemining'); window.scrollTo({ top: 0 }); }} className={`transition-colors ${activeCategory === 'MINING' ? 'text-white' : 'hover:text-white'}`}>Free Mining</button>
+            <button onClick={() => { navigate('/passive'); window.scrollTo({ top: 0 }); }} className={`transition-colors ${activeCategory === 'PASSIVE' ? 'text-white' : 'hover:text-white'}`}>Passive Income</button>
             <button
               onClick={() => { navigate('/blog'); window.scrollTo({ top: 0 }); }}
-              className="bg-purple-600/40 hover:bg-purple-600/60 text-white px-6 py-2 rounded-full border border-purple-400/30 transition-all shadow-sm"
+              className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-full border border-purple-400/30 transition-all shadow-sm"
             >
               Blog
             </button>
