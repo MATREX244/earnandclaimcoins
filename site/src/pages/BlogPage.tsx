@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Search, Home, ArrowLeft, Share2, Twitter, Send, MoreHorizontal, Star } from 'lucide-react';
 import AdBannerSticky from '../components/AdBannerSticky';
 import AdBanner from '../components/AdBanner';
+import Header from '../components/Header';
 
 export default function BlogPage() {
   const navigate = useNavigate();
@@ -51,25 +52,7 @@ export default function BlogPage() {
     <div className="min-h-screen flex flex-col font-sans bg-[#f8fafc]">
       <AdBannerSticky />
       
-      {/* Navbar - Matching Header Print */}
-      <header className="sticky top-0 z-50 transition-all duration-300 bg-[#2e1065] text-white py-3.5 shadow-xl">
-        <div className="max-w-[1400px] mx-auto px-6 flex justify-between items-center">
-          <button onClick={() => navigate('/')} className="flex items-center gap-2.5 group">
-            <img src="/assets/icon.webp" alt="Logo" className="w-8 h-8 object-contain" />
-            <span className="text-[17px] font-medium tracking-wide">Earn and Claim Coins Free</span>
-          </button>
-          <nav className="hidden lg:flex items-center gap-8 text-[15px] text-gray-300 font-semibold tracking-wide">
-            <button onClick={() => navigate('/')} className="hover:text-white transition-colors">All Sites</button>
-            <button onClick={() => navigate('/faucet')} className="hover:text-white transition-colors">Faucets</button>
-            <button onClick={() => navigate('/ptc')} className="hover:text-white transition-colors">PTC Sites</button>
-            <button onClick={() => navigate('/freemining')} className="hover:text-white transition-colors">Free Mining</button>
-            <button onClick={() => navigate('/passive')} className="hover:text-white transition-colors">Passive Income</button>
-            <button className="text-white">
-              Blog
-            </button>
-          </nav>
-        </div>
-      </header>
+      <Header />
 
       <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12">
         <div className="flex flex-col lg:flex-row gap-10">

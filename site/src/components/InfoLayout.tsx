@@ -2,6 +2,7 @@ import { ReactNode, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Home } from 'lucide-react';
 import AdBannerSticky from './AdBannerSticky';
+import Header from './Header';
 
 interface InfoLayoutProps {
   children: ReactNode;
@@ -21,21 +22,7 @@ export default function InfoLayout({ children, title }: InfoLayoutProps) {
   return (
     <div className="min-h-screen flex flex-col font-sans bg-[#f8fafc]">
       <AdBannerSticky />
-      {/* Navbar */}
-      <header className={`sticky top-0 z-50 transition-all duration-300 bg-[#2e1065] text-white ${isScrolled ? 'shadow-xl py-3' : 'py-3.5'}`}>
-        <div className="max-w-[1400px] mx-auto px-6 flex justify-between items-center">
-          <button onClick={() => navigate('/')} className="flex items-center gap-2.5 group">
-            <img src="/assets/icon.webp" alt="Logo" className="w-8 h-8 object-contain" />
-            <span className="text-[17px] font-medium tracking-wide">Earn and Claim Coins Free</span>
-          </button>
-          <button 
-            onClick={() => navigate('/')}
-            className="flex items-center gap-2 text-sm font-bold text-purple-200 hover:text-white transition-colors"
-          >
-            <Home className="w-4 h-4" /> Home
-          </button>
-        </div>
-      </header>
+      <Header />
 
       <main className="flex-grow max-w-4xl mx-auto px-6 py-16 w-full">
         <button

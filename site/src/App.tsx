@@ -5,6 +5,7 @@ import { SiteData, sites, Category } from './data';
 import { SiteCard } from './components/SiteCard';
 import AdBanner from './components/AdBanner';
 import AdBannerSticky from './components/AdBannerSticky';
+import Header from './components/Header';
 
 // Animated Counter — easeOutExpo, no layout thrash
 const AnimatedCounter = ({ endValue, duration, decimals = 0 }: { endValue: number; duration: number; decimals?: number }) => {
@@ -132,29 +133,7 @@ export default function App() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaItemList) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
 
-      {/* Navbar */}
-      <header aria-label="Main Navigation" className={`sticky top-0 z-50 transition-all duration-300 bg-[#2e1065] text-white ${isScrolled ? 'shadow-xl shadow-purple-900/10 py-3' : 'py-3.5'}`}>
-        <div className="max-w-[1400px] mx-auto px-6 flex justify-between items-center">
-          <a href="#" className="flex items-center gap-2.5 group" aria-label="Home — Earn and Claim Coins Free">
-            <img src="/assets/icon.webp" alt="Earn and Claim Coins Free logo" className="w-8 h-8 object-contain" />
-            <span className="text-[17px] font-medium tracking-wide">Earn and Claim Coins Free</span>
-          </a>
-
-          <nav className="hidden lg:flex items-center gap-8 text-[15px] text-gray-300 font-semibold tracking-wide" aria-label="Category navigation">
-            <button onClick={() => { navigate('/'); window.scrollTo({ top: 0 }); }} className={`transition-colors ${activeCategory === 'ALL' ? 'text-white' : 'hover:text-white'}`}>All Sites</button>
-            <button onClick={() => { navigate('/faucet'); window.scrollTo({ top: 0 }); }} className={`transition-colors ${activeCategory === 'FAUCET' ? 'text-white' : 'hover:text-white'}`}>Faucets</button>
-            <button onClick={() => { navigate('/ptc'); window.scrollTo({ top: 0 }); }} className={`transition-colors ${activeCategory === 'PTC' ? 'text-white' : 'hover:text-white'}`}>PTC Sites</button>
-            <button onClick={() => { navigate('/freemining'); window.scrollTo({ top: 0 }); }} className={`transition-colors ${activeCategory === 'MINING' ? 'text-white' : 'hover:text-white'}`}>Free Mining</button>
-            <button onClick={() => { navigate('/passive'); window.scrollTo({ top: 0 }); }} className={`transition-colors ${activeCategory === 'PASSIVE' ? 'text-white' : 'hover:text-white'}`}>Passive Income</button>
-            <button
-              onClick={() => { navigate('/blog'); window.scrollTo({ top: 0 }); }}
-              className="hover:text-white transition-colors"
-            >
-              Blog
-            </button>
-          </nav>
-        </div>
-      </header>
+      <Header />
 
       {/* Mobile Bottom Nav */}
       <nav className="lg:hidden fixed bottom-0 w-full z-40 bg-[#2e1065] border-t border-purple-800/50 pb-[env(safe-area-inset-bottom)] shadow-[0_-4px_24px_rgba(0,0,0,0.2)]" aria-label="Mobile navigation">
