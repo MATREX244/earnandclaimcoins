@@ -5,6 +5,7 @@ import { sites, Category } from '../data';
 import { SiteCard } from '../components/SiteCard';
 import AdBanner from '../components/AdBanner';
 import AdBannerSticky from '../components/AdBannerSticky';
+import Header from '../components/Header';
 
 interface CategoryPageProps {
   category: Exclude<Category, 'ALL'>;
@@ -40,12 +41,13 @@ export default function CategoryPage({ category }: CategoryPageProps) {
     [category, searchQuery]
   );
 
-  const categories: { id: string; label: string; path: string; icon: React.ReactNode }[] = [
+  const categories: { id: string; label: string; path: string; icon: any }[] = [
     { id: 'home', label: 'Home', path: '/', icon: <Home className="w-4 h-4" /> },
     { id: 'FAUCET', label: 'Faucets', path: '/faucet', icon: <Droplet className="w-4 h-4" /> },
     { id: 'PTC', label: 'PTC Sites', path: '/ptc', icon: <List className="w-4 h-4" /> },
     { id: 'MINING', label: 'Free Mining', path: '/freemining', icon: <Activity className="w-4 h-4" /> },
     { id: 'PASSIVE', label: 'Passive', path: '/passive', icon: <GiftIcon className="w-4 h-4" /> },
+    { id: 'BLOG', label: 'Blog', path: '/blog', icon: <List className="w-4 h-4" /> },
   ];
 
   // FIX: ChevronUp was used as the Passive icon — it made no sense visually; replaced with GiftIcon
@@ -53,35 +55,7 @@ export default function CategoryPage({ category }: CategoryPageProps) {
   return (
     <div className="min-h-screen flex flex-col font-sans bg-[#f8fafc]">
       <AdBannerSticky />
-      {/* Navbar */}
-      <header className="sticky top-0 z-50 bg-[#2e1065] text-white py-3 shadow-xl">
-        <div className="max-w-[1400px] mx-auto px-6 flex justify-between items-center">
-          <a
-            href="/"
-            onClick={(e) => { e.preventDefault(); navigate('/'); }}
-            className="flex items-center gap-2.5"
-            aria-label="Home — Earn and Claim Coins Free"
-          >
-            <img src="/assets/icon.webp" alt="Logo" className="w-8 h-8 object-contain" />
-            <span className="text-[17px] font-medium tracking-wide">Earn and Claim Coins Free</span>
-          </a>
-          <nav className="hidden lg:flex items-center gap-6 text-[14.5px] text-gray-300 font-medium" aria-label="Category navigation">
-            {categories.map((cat) => (
-              <a
-                key={cat.id}
-                href={cat.path}
-                onClick={(e) => { e.preventDefault(); navigate(cat.path); window.scrollTo({ top: 0 }); }}
-                className={`flex items-center gap-1.5 transition-colors ${
-                  cat.id === category ? 'text-white' : 'hover:text-white'
-                }`}
-                aria-current={cat.id === category ? 'page' : undefined}
-              >
-                {cat.label}
-              </a>
-            ))}
-          </nav>
-        </div>
-      </header>
+      <Header />
 
       {/* Mobile bottom nav */}
       <nav className="lg:hidden fixed bottom-0 w-full z-40 bg-[#2e1065] border-t border-purple-800/50 pb-[env(safe-area-inset-bottom)] shadow-[0_-4px_24px_rgba(0,0,0,0.2)]" aria-label="Mobile navigation">
@@ -142,7 +116,7 @@ export default function CategoryPage({ category }: CategoryPageProps) {
         {categorySites.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {categorySites.map((site) => (
-              <SiteCard key={site.id} site={site} />
+              <SiteCard site={site} />
             ))}
             {/* Card-sized ad at end of grid */}
             <AdBanner variant="card" />

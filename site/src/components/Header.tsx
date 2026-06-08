@@ -18,6 +18,7 @@ export default function Header() {
     { label: 'PTC Sites', path: '/ptc' },
     { label: 'Free Mining', path: '/freemining' },
     { label: 'Passive Income', path: '/passive' },
+    { label: 'Blog', path: '/blog' },
   ];
 
   const isActive = (path: string) => {
@@ -43,12 +44,6 @@ export default function Header() {
               {item.label}
             </button>
           ))}
-          <button
-            onClick={() => { navigate('/blog'); window.scrollTo({ top: 0 }); }}
-            className={`transition-colors ${location.pathname === '/blog' ? 'text-white' : 'hover:text-white'}`}
-          >
-            Blog
-          </button>
         </nav>
       </div>
     </header>

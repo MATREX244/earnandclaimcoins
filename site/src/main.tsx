@@ -2,15 +2,16 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './index.css';
-import App from './App.tsx';
-import CategoryPage from './pages/CategoryPage.tsx';
-import BlogPage from './pages/BlogPage.tsx';
-import RedirectPage from './pages/RedirectPage.tsx';
-import AboutPage from './pages/AboutPage.tsx';
-import PrivacyPage from './pages/PrivacyPage.tsx';
-import TermsPage from './pages/TermsPage.tsx';
-import PoliticsPage from './pages/PoliticsPage.tsx';
-import NotFoundPage from './pages/NotFoundPage.tsx';
+import App from './App';
+import CategoryPage from './pages/CategoryPage';
+import BlogPage from './pages/BlogPage';
+import NewsPage from './pages/NewsPage';
+import RedirectPage from './pages/RedirectPage';
+import AboutPage from './pages/AboutPage';
+import PrivacyPage from './pages/PrivacyPage';
+import TermsPage from './pages/TermsPage';
+import PoliticsPage from './pages/PoliticsPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -22,6 +23,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/ptc" element={<CategoryPage category="PTC" />} />
         <Route path="/passive" element={<CategoryPage category="PASSIVE" />} />
         <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blog/:postId" element={<NewsPage />} />
         <Route path="/redirect/:siteId" element={<RedirectPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/privacy" element={<PrivacyPage />} />
