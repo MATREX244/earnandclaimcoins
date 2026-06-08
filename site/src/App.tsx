@@ -48,6 +48,7 @@ export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [newsSearchQuery, setNewsSearchQuery] = useState('');
   const [cryptoIndex, setCryptoIndex] = useState(0);
   const [cryptoIndex2, setCryptoIndex2] = useState(2);
 
@@ -139,25 +140,24 @@ export default function App() {
             <span className="text-[17px] font-medium tracking-wide">Earn and Claim Coins Free</span>
           </a>
 
-          <nav className="hidden lg:flex items-center gap-7 text-[14.5px] text-gray-300 font-medium tracking-wide" aria-label="Category navigation">
+          <nav className="hidden lg:flex items-center gap-8 text-[15px] text-gray-300 font-semibold tracking-wide" aria-label="Category navigation">
             {categories.map((cat) => (
               <a
                 key={cat.id}
                 href="#"
                 onClick={(e) => { e.preventDefault(); navigate(categoryRoutes[cat.id] ?? '/'); window.scrollTo({ top: 0 }); }}
-                className={`flex items-center gap-1.5 transition-colors ${activeCategory === cat.id ? 'text-white' : 'hover:text-white'}`}
+                className={`transition-colors ${activeCategory === cat.id ? 'text-white' : 'hover:text-white'}`}
                 aria-current={activeCategory === cat.id ? 'page' : undefined}
               >
                 {cat.label}
               </a>
             ))}
-            <a
-              href="#"
-              onClick={(e) => { e.preventDefault(); navigate('/blog'); window.scrollTo({ top: 0 }); }}
-              className="flex items-center gap-1.5 transition-colors hover:text-white bg-purple-700/50 px-4 py-1.5 rounded-full border border-purple-500/30"
+            <button
+              onClick={() => { navigate('/blog'); window.scrollTo({ top: 0 }); }}
+              className="bg-purple-600/40 hover:bg-purple-600/60 text-white px-6 py-2 rounded-full border border-purple-400/30 transition-all shadow-sm"
             >
               Blog
-            </a>
+            </button>
           </nav>
         </div>
       </header>
@@ -486,12 +486,27 @@ export default function App() {
 
             {/* Latest Crypto News for SEO */}
             <section className="mt-24 mb-16 border-t border-gray-100 pt-20">
-              <div className="max-w-5xl mx-auto px-4">
-                <div className="text-center mb-12">
-                  <h2 className="text-3xl font-heading font-bold text-gray-900 mb-4">Latest Crypto Earning News</h2>
-                  <p className="text-gray-500 font-medium">Stay updated with the newest opportunities and trends in the crypto world.</p>
+              <div className="max-w-6xl mx-auto px-4">
+                <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+                  <div className="max-w-xl">
+                    <h2 className="text-3xl font-heading font-bold text-gray-900 mb-4">Latest Crypto Earning News</h2>
+                    <p className="text-gray-500 font-medium">Stay updated with the newest opportunities and trends in the crypto world.</p>
+                  </div>
+                  <div className="w-full md:w-80 relative group">
+                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                      <Search className="h-4 w-4 text-gray-400" aria-hidden="true" />
+                    </div>
+                    <input
+                      type="text"
+                      placeholder="Search news..."
+                      className="block w-full pl-10 pr-4 py-2.5 bg-white border border-gray-200 rounded-xl text-sm focus:ring-4 focus:ring-purple-500/10 focus:border-purple-500 transition-all outline-none"
+                      value={newsSearchQuery}
+                      onChange={(e) => setNewsSearchQuery(e.target.value)}
+                    />
+                  </div>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   {[
                     { date: 'June 07, 2026', title: 'Top 5 High-Paying Faucets to Watch This Month', excerpt: 'Discover which platforms are offering the best rewards and bonuses for active users in June.' },
                     { date: 'June 05, 2026', title: 'How to Maximize Your Passive Income with Cloud Mining', excerpt: 'A comprehensive guide on setting up your first passive crypto stream with zero upfront costs.' },
@@ -503,17 +518,17 @@ export default function App() {
                     { date: 'May 19, 2026', title: 'Referral Programs: Turning Your Claims into a Network', excerpt: 'Strategies for building a robust referral network to multiply your daily crypto earnings.' },
                     { date: 'May 16, 2026', title: 'Best Practices for Fast Captcha Solving', excerpt: 'Tips and tools to help you navigate faucet security checks more efficiently and save time.' },
                     { date: 'May 13, 2026', title: 'Comparing Ethereum and Solana Faucets: Which is Better?', excerpt: 'A detailed comparison of rewards and network fees for the two most popular altcoin faucets.' }
-                  ].map((news, idx) => (
-                    <div key={idx} className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow group cursor-pointer">
-                      <span className="text-xs font-bold text-purple-500 uppercase tracking-wider">{news.date}</span>
-                      <h3 className="text-lg font-bold text-gray-900 mt-2 mb-3 group-hover:text-purple-600 transition-colors">{news.title}</h3>
-                      <p className="text-gray-500 text-sm leading-relaxed">{news.excerpt}</p>
+                  ].filter(n => n.title.toLowerCase().includes(newsSearchQuery.toLowerCase())).map((news, idx) => (
+                    <div key={idx} className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow group cursor-pointer flex flex-col h-full">
+                      <span className="text-[11px] font-bold text-purple-500 uppercase tracking-wider">{news.date}</span>
+                      <h3 className="text-lg font-bold text-gray-900 mt-2 mb-3 group-hover:text-purple-600 transition-colors line-clamp-2">{news.title}</h3>
+                      <p className="text-gray-500 text-[13.5px] leading-relaxed line-clamp-3 mt-auto">{news.excerpt}</p>
                     </div>
                   ))}
                 </div>
-                <div className="text-center mt-10">
-                  <button onClick={() => { navigate('/blog'); window.scrollTo(0, 0); }} className="text-purple-600 font-bold hover:underline underline-offset-4">
-                    View all news and articles
+                <div className="text-center mt-12">
+                  <button onClick={() => { navigate('/blog'); window.scrollTo(0, 0); }} className="bg-gray-900 text-white px-8 py-3 rounded-full font-bold hover:bg-gray-800 transition-colors shadow-sm">
+                    View All Articles
                   </button>
                 </div>
               </div>
