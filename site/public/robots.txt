@@ -1,5 +1,5 @@
 # robots.txt — Earn and Claim Coins Free
-# https://earnandclaimcoinsfree.com/
+# https://earnandclaimcoins.pages.dev/
 
 User-agent: *
 Allow: /
@@ -11,4 +11,4 @@ Disallow: /redirect/
 Disallow: /404
 
 # Sitemap location
-Sitemap: https://earnandclaimcoinsfree.com/sitemap.xml
+Sitemap: https://earnandclaimcoins.pages.dev/sitemap.xml

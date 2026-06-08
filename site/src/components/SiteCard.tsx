@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Star, Gift, Activity, ArrowRight, Heart, Zap, HandCoins, Pickaxe, Laptop, Coins, MoreHorizontal } from 'lucide-react';
 import { SiteData, slugify } from '../data';
@@ -43,7 +43,7 @@ const getCoinSymbols = (site: SiteData) => {
     return site.type === 'PASSIVE' ? ['usdt'] : ['btc', 'eth', 'doge', 'trx'];
   }
 
-  return [...new Set(symbols)];
+  return Array.from(new Set(symbols));
 };
 
 const TypeIcon = ({ type, className }: { type: SiteData['type']; className?: string }) => {

@@ -85,7 +85,7 @@ export default function App() {
     setFavorites((prev) => {
       const next = new Set(prev);
       next.has(id) ? next.delete(id) : next.add(id);
-      try { localStorage.setItem('cfh_favorites', JSON.stringify([...next])); } catch { /* ignore */ }
+      try { localStorage.setItem('cfh_favorites', JSON.stringify(Array.from(next))); } catch { /* ignore */ }
       return next;
     });
   };
@@ -369,7 +369,7 @@ export default function App() {
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                   {sectionSites.map((site) => (
-                    <SiteCard key={site.id} site={site} isFavorite={favorites.has(site.id)} onToggleFavorite={toggleFavorite} />
+                    <SiteCard site={site} isFavorite={favorites.has(site.id)} onToggleFavorite={toggleFavorite} />
                   ))}
                   {/* Card-sized ad banner at the end of each section grid */}
                   <AdBanner variant="card" />
@@ -446,7 +446,7 @@ export default function App() {
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
                 {popularSites.map((site) => (
-                  <SiteCard key={`pop-${site.id}`} site={site} isFavorite={favorites.has(site.id)} onToggleFavorite={toggleFavorite} />
+                  <SiteCard site={site} isFavorite={favorites.has(site.id)} onToggleFavorite={toggleFavorite} />
                 ))}
               </div>
               {/* Ad Banner below popular sites */}
