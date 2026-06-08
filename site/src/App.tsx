@@ -148,7 +148,7 @@ export default function App() {
             <button onClick={() => { navigate('/passive'); window.scrollTo({ top: 0 }); }} className={`transition-colors ${activeCategory === 'PASSIVE' ? 'text-white' : 'hover:text-white'}`}>Passive Income</button>
             <button
               onClick={() => { navigate('/blog'); window.scrollTo({ top: 0 }); }}
-              className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-full border border-purple-400/30 transition-all shadow-sm"
+              className="hover:text-white transition-colors"
             >
               Blog
             </button>

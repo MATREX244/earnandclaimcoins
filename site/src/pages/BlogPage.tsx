@@ -64,7 +64,7 @@ export default function BlogPage() {
             <button onClick={() => navigate('/ptc')} className="hover:text-white transition-colors">PTC Sites</button>
             <button onClick={() => navigate('/freemining')} className="hover:text-white transition-colors">Free Mining</button>
             <button onClick={() => navigate('/passive')} className="hover:text-white transition-colors">Passive Income</button>
-            <button className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-full border border-purple-400/30 transition-all shadow-sm">
+            <button className="text-white">
               Blog
             </button>
           </nav>
