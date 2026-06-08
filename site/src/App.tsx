@@ -476,6 +476,24 @@ export default function App() {
             </section>
             {/* Ad Banner at the end of the main content */}
             <AdBanner />
+
+            {/* Site Description */}
+            <section className="mt-16 mb-8 border-t border-gray-100 pt-16">
+              <div className="max-w-4xl mx-auto">
+                <h2 className="text-2xl font-heading font-bold text-gray-900 mb-6 text-center">About Earn and Claim Coins Free</h2>
+                <div className="space-y-6 text-gray-600 leading-relaxed text-lg">
+                  <p>
+                    Earn and Claim Coins Free is a comprehensive directory designed to connect users with the most reliable and highest-paying cryptocurrency faucets, PTC sites, and passive income platforms available on the web today. In an industry often filled with uncertainty, our mission is to provide a curated, safe, and regularly updated list of legitimate opportunities for anyone looking to start their journey into the world of digital assets without any initial investment.
+                  </p>
+                  <p>
+                    We understand that your time is valuable, which is why we meticulously test and verify every platform listed on our site. From established giants in the faucet space to emerging cloud mining and passive income tools, we prioritize sites that offer consistent payouts, user-friendly interfaces, and robust security measures. Whether you are a beginner looking for your first fraction of a Bitcoin or an experienced user optimizing your daily claims, our platform serves as your trusted gateway to the crypto economy.
+                  </p>
+                  <p>
+                    By centralizing these diverse earning methods, we empower our community to maximize their digital earnings efficiently. We constantly monitor the market and platform statuses to ensure that our recommendations remain current and profitable. Our goal is to foster a transparent environment where users can confidently explore, earn, and claim their coins while staying informed about the best practices and latest trends in the free cryptocurrency ecosystem.
+                  </p>
+                </div>
+              </div>
+            </section>
           </>
         )}
       </main>
