@@ -151,6 +151,13 @@ export default function App() {
                 {cat.label}
               </a>
             ))}
+            <a
+              href="#"
+              onClick={(e) => { e.preventDefault(); navigate('/blog'); window.scrollTo({ top: 0 }); }}
+              className="flex items-center gap-1.5 transition-colors hover:text-white bg-purple-700/50 px-4 py-1.5 rounded-full border border-purple-500/30"
+            >
+              Blog
+            </a>
           </nav>
         </div>
       </header>
@@ -295,46 +302,25 @@ export default function App() {
         )}
 
         {/* Category filter bar */}
-        <div className={`mb-12 ${activeCategory !== 'ALL' ? 'pt-12' : ''}`}>
+        <div className={`mb-16 ${activeCategory !== 'ALL' ? 'pt-12' : ''}`}>
           {activeCategory !== 'ALL' && (
-            <div className="mb-10 px-2 text-center lg:text-left">
+            <div className="mb-12 px-2 text-center lg:text-left">
               <h1 className="text-4xl md:text-6xl font-heading font-bold text-gray-900">
                 {categories.find((c) => c.id === activeCategory)?.label}
               </h1>
             </div>
           )}
 
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-6 px-2">
-            {/* Search + inline ad side by side */}
-            <div className="flex flex-col sm:flex-row items-center gap-3 w-full lg:w-auto shrink-0">
-              <div className="w-full sm:w-[400px] relative group shrink-0">
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                  <Search className="h-5 w-5 text-gray-400 group-focus-within:text-purple-500 transition-colors" aria-hidden="true" />
-                </div>
-                <input
-                  type="search"
-                  placeholder="Search sites..."
-                  className="block w-full pl-12 pr-4 py-3 bg-white border border-gray-200 rounded-[14px] text-base text-gray-900 focus:ring-4 focus:ring-purple-500/10 focus:border-purple-500 transition-all outline-none shadow-sm font-medium placeholder:font-normal"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  aria-label="Search sites"
-                  autoComplete="off"
-                  spellCheck={false}
-                />
-              </div>
-              {/* Inline ad — ao lado da pesquisa em sm+, largura total abaixo em mobile */}
-              <AdBanner variant="inline" className="w-full sm:w-auto" />
-            </div>
-
-            <section aria-label="Category Filters" className="flex flex-wrap justify-center lg:justify-end gap-3 w-full lg:w-auto">
+          <div className="bg-white p-6 rounded-[24px] border border-gray-100 shadow-sm flex flex-col gap-8">
+            <section aria-label="Category Filters" className="flex flex-wrap justify-center lg:justify-start gap-2.5">
               {categories.map((cat) => (
                 <button
                   key={cat.id}
                   onClick={() => { navigate(categoryRoutes[cat.id] ?? '/'); window.scrollTo({ top: 0 }); }}
-                  className={`px-6 py-2.5 rounded-[12px] text-[14px] font-bold transition-all duration-300 cursor-pointer ${
+                  className={`px-5 py-2.5 rounded-full text-[13.5px] font-bold transition-all duration-300 cursor-pointer border ${
                     activeCategory === cat.id
-                      ? 'bg-[#2e1065] text-white shadow-lg shadow-purple-900/20 transform scale-[1.02]'
-                      : 'bg-white border border-gray-200 text-gray-600 hover:bg-gray-50 hover:text-gray-900 hover:border-gray-300 shadow-sm'
+                      ? 'bg-[#2e1065] text-white border-[#2e1065] shadow-md'
+                      : 'bg-gray-50 border-gray-100 text-gray-500 hover:bg-white hover:border-purple-200 hover:text-purple-600'
                   }`}
                   aria-pressed={activeCategory === cat.id}
                 >
@@ -342,6 +328,25 @@ export default function App() {
                 </button>
               ))}
             </section>
+
+            <div className="flex flex-col lg:flex-row items-center justify-between gap-6 border-t border-gray-50 pt-6">
+              <div className="w-full lg:max-w-md relative group">
+                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                  <Search className="h-5 w-5 text-gray-400 group-focus-within:text-purple-500 transition-colors" aria-hidden="true" />
+                </div>
+                <input
+                  type="search"
+                  placeholder="Search across all categories..."
+                  className="block w-full pl-12 pr-4 py-3.5 bg-gray-50/50 border border-gray-200 rounded-2xl text-base text-gray-900 focus:ring-4 focus:ring-purple-500/10 focus:border-purple-500 transition-all outline-none font-medium placeholder:text-gray-400"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  aria-label="Search sites"
+                  autoComplete="off"
+                  spellCheck={false}
+                />
+              </div>
+              <AdBanner variant="inline" className="w-full lg:w-auto" />
+            </div>
           </div>
         </div>
 
@@ -477,6 +482,41 @@ export default function App() {
             {/* Ad Banner at the end of the main content */}
             <AdBanner />
 
+            {/* Latest Crypto News for SEO */}
+            <section className="mt-24 mb-16 border-t border-gray-100 pt-20">
+              <div className="max-w-5xl mx-auto px-4">
+                <div className="text-center mb-12">
+                  <h2 className="text-3xl font-heading font-bold text-gray-900 mb-4">Latest Crypto Earning News</h2>
+                  <p className="text-gray-500 font-medium">Stay updated with the newest opportunities and trends in the crypto world.</p>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {[
+                    { date: 'June 07, 2026', title: 'Top 5 High-Paying Faucets to Watch This Month', excerpt: 'Discover which platforms are offering the best rewards and bonuses for active users in June.' },
+                    { date: 'June 05, 2026', title: 'How to Maximize Your Passive Income with Cloud Mining', excerpt: 'A comprehensive guide on setting up your first passive crypto stream with zero upfront costs.' },
+                    { date: 'June 03, 2026', title: 'The Rise of Micro-Wallets: Why FaucetPay is Essential', excerpt: 'Learn why micro-wallets are the backbone of the faucet industry and how to use them safely.' },
+                    { date: 'June 01, 2026', title: 'Bitcoin Price Trends and Their Impact on Faucet Payouts', excerpt: 'Understanding the relationship between market volatility and the amount of satoshis you can claim.' },
+                    { date: 'May 28, 2026', title: 'New PTC Sites: Are They Worth Your Time?', excerpt: 'We review the latest Paid-To-Click platforms to see which ones are legitimate and which to avoid.' },
+                    { date: 'May 25, 2026', title: 'Security Tips: How to Protect Your Crypto Earnings', excerpt: 'Essential practices to keep your micro-wallet and personal wallet safe from common online threats.' },
+                    { date: 'May 22, 2026', title: 'The Future of Free Crypto: What to Expect in Late 2026', excerpt: 'An analysis of where the free cryptocurrency ecosystem is heading and how to stay ahead.' },
+                    { date: 'May 19, 2026', title: 'Referral Programs: Turning Your Claims into a Network', excerpt: 'Strategies for building a robust referral network to multiply your daily crypto earnings.' },
+                    { date: 'May 16, 2026', title: 'Best Practices for Fast Captcha Solving', excerpt: 'Tips and tools to help you navigate faucet security checks more efficiently and save time.' },
+                    { date: 'May 13, 2026', title: 'Comparing Ethereum and Solana Faucets: Which is Better?', excerpt: 'A detailed comparison of rewards and network fees for the two most popular altcoin faucets.' }
+                  ].map((news, idx) => (
+                    <div key={idx} className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow group cursor-pointer">
+                      <span className="text-xs font-bold text-purple-500 uppercase tracking-wider">{news.date}</span>
+                      <h3 className="text-lg font-bold text-gray-900 mt-2 mb-3 group-hover:text-purple-600 transition-colors">{news.title}</h3>
+                      <p className="text-gray-500 text-sm leading-relaxed">{news.excerpt}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="text-center mt-10">
+                  <button onClick={() => { navigate('/blog'); window.scrollTo(0, 0); }} className="text-purple-600 font-bold hover:underline underline-offset-4">
+                    View all news and articles
+                  </button>
+                </div>
+              </div>
+            </section>
+
             {/* Site Description */}
             <section className="mt-16 mb-8 border-t border-gray-100 pt-16">
               <div className="max-w-4xl mx-auto">
@@ -514,6 +554,7 @@ export default function App() {
                 <button onClick={() => { navigate('/faucet'); window.scrollTo(0, 0); }} className="hover:text-white transition-colors">Faucets</button>
                 <button onClick={() => { navigate('/ptc'); window.scrollTo(0, 0); }} className="hover:text-white transition-colors">PTC Sites</button>
                 <button onClick={() => { navigate('/freemining'); window.scrollTo(0, 0); }} className="hover:text-white transition-colors">Mining</button>
+                <button onClick={() => { navigate('/blog'); window.scrollTo(0, 0); }} className="hover:text-white transition-colors">Blog</button>
                 <button onClick={() => { navigate('/about'); window.scrollTo(0, 0); }} className="hover:text-white transition-colors">About</button>
                 <button onClick={() => { navigate('/privacy'); window.scrollTo(0, 0); }} className="hover:text-white transition-colors">Privacy Policy</button>
                 <button onClick={() => { navigate('/terms'); window.scrollTo(0, 0); }} className="hover:text-white transition-colors">Terms</button>
