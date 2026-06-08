@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './index.css';
 import App from './App.tsx';
 import CategoryPage from './pages/CategoryPage.tsx';
+import BlogPage from './pages/BlogPage.tsx';
 import RedirectPage from './pages/RedirectPage.tsx';
 import AboutPage from './pages/AboutPage.tsx';
 import PrivacyPage from './pages/PrivacyPage.tsx';
@@ -20,6 +21,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/freemining" element={<CategoryPage category="MINING" />} />
         <Route path="/ptc" element={<CategoryPage category="PTC" />} />
         <Route path="/passive" element={<CategoryPage category="PASSIVE" />} />
+        <Route path="/blog" element={<BlogPage />} />
         <Route path="/redirect/:siteId" element={<RedirectPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/privacy" element={<PrivacyPage />} />

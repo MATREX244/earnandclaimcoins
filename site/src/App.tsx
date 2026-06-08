@@ -302,42 +302,26 @@ export default function App() {
         )}
 
         {/* Category filter bar */}
-        <div className={`mb-16 ${activeCategory !== 'ALL' ? 'pt-12' : ''}`}>
+        <div className={`mb-12 ${activeCategory !== 'ALL' ? 'pt-12' : ''}`}>
           {activeCategory !== 'ALL' && (
-            <div className="mb-12 px-2 text-center lg:text-left">
+            <div className="mb-10 px-2 text-center lg:text-left">
               <h1 className="text-4xl md:text-6xl font-heading font-bold text-gray-900">
                 {categories.find((c) => c.id === activeCategory)?.label}
               </h1>
             </div>
           )}
 
-          <div className="bg-white p-6 rounded-[24px] border border-gray-100 shadow-sm flex flex-col gap-8">
-            <section aria-label="Category Filters" className="flex flex-wrap justify-center lg:justify-start gap-2.5">
-              {categories.map((cat) => (
-                <button
-                  key={cat.id}
-                  onClick={() => { navigate(categoryRoutes[cat.id] ?? '/'); window.scrollTo({ top: 0 }); }}
-                  className={`px-5 py-2.5 rounded-full text-[13.5px] font-bold transition-all duration-300 cursor-pointer border ${
-                    activeCategory === cat.id
-                      ? 'bg-[#2e1065] text-white border-[#2e1065] shadow-md'
-                      : 'bg-gray-50 border-gray-100 text-gray-500 hover:bg-white hover:border-purple-200 hover:text-purple-600'
-                  }`}
-                  aria-pressed={activeCategory === cat.id}
-                >
-                  {cat.label}
-                </button>
-              ))}
-            </section>
-
-            <div className="flex flex-col lg:flex-row items-center justify-between gap-6 border-t border-gray-50 pt-6">
-              <div className="w-full lg:max-w-md relative group">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-6 px-2">
+            {/* Search + inline ad side by side */}
+            <div className="flex flex-col sm:flex-row items-center gap-3 w-full lg:w-auto shrink-0">
+              <div className="w-full sm:w-[400px] relative group shrink-0">
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                   <Search className="h-5 w-5 text-gray-400 group-focus-within:text-purple-500 transition-colors" aria-hidden="true" />
                 </div>
                 <input
                   type="search"
-                  placeholder="Search across all categories..."
-                  className="block w-full pl-12 pr-4 py-3.5 bg-gray-50/50 border border-gray-200 rounded-2xl text-base text-gray-900 focus:ring-4 focus:ring-purple-500/10 focus:border-purple-500 transition-all outline-none font-medium placeholder:text-gray-400"
+                  placeholder="Search sites..."
+                  className="block w-full pl-12 pr-4 py-3 bg-white border border-gray-200 rounded-[14px] text-base text-gray-900 focus:ring-4 focus:ring-purple-500/10 focus:border-purple-500 transition-all outline-none shadow-sm font-medium placeholder:font-normal"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   aria-label="Search sites"
@@ -345,8 +329,26 @@ export default function App() {
                   spellCheck={false}
                 />
               </div>
-              <AdBanner variant="inline" className="w-full lg:w-auto" />
+              {/* Inline ad — ao lado da pesquisa em sm+, largura total abaixo em mobile */}
+              <AdBanner variant="inline" className="w-full sm:w-auto" />
             </div>
+
+            <section aria-label="Category Filters" className="flex flex-wrap justify-center lg:justify-end gap-3 w-full lg:w-auto">
+              {categories.map((cat) => (
+                <button
+                  key={cat.id}
+                  onClick={() => { navigate(categoryRoutes[cat.id] ?? '/'); window.scrollTo({ top: 0 }); }}
+                  className={`px-6 py-2.5 rounded-[12px] text-[14px] font-bold transition-all duration-300 cursor-pointer ${
+                    activeCategory === cat.id
+                      ? 'bg-[#2e1065] text-white shadow-lg shadow-purple-900/20 transform scale-[1.02]'
+                      : 'bg-white border border-gray-200 text-gray-600 hover:bg-gray-50 hover:text-gray-900 hover:border-gray-300 shadow-sm'
+                  }`}
+                  aria-pressed={activeCategory === cat.id}
+                >
+                  {cat.label}
+                </button>
+              ))}
+            </section>
           </div>
         </div>
 
